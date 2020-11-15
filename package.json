@@ -1,6 +1,6 @@
 {
   "name": "@lyngs/merge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use merge() to merge every value. supporting types: <Object/Array/Set/Map>.",
   "main": "src/index.js",
   "directories": {
