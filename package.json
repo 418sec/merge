@@ -1,0 +1,45 @@
+{
+  "name": "@lyngs/merge",
+  "version": "1.0.0",
+  "description": "Use @lyngs/merge to merge <Object/Array/Set/Map>.",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShookLyngs/merge.git"
+  },
+  "author": "shook-lyngs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShookLyngs/merge/issues"
+  },
+  "homepage": "https://github.com/ShookLyngs/merge#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "object",
+    "array",
+    "dig",
+    "find",
+    "merge"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "chai": "^4.2.0",
+    "is-proxy": "^1.0.4",
+    "mocha": "^8.2.1",
+    "rollup": "^2.33.2"
+  }
+}
