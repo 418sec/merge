@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { merge } from '../src';
+import { merge } from '../dist';
 
 describe(`merge <Object/Array>`, () => {
   it('[ number, string ]', () => {

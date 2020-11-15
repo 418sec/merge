@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
+import commonJs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 
 export default {
@@ -12,14 +13,18 @@ export default {
     resolve(),
     babel({
       babelHelpers: 'bundled',
+      exclude: /node_modules/,
       presets: [
         [
-          "@babel/preset-env",
+          '@babel/preset-env',
+
           {
-            useBuiltIns: 'usage'
+            useBuiltIns: 'usage',
+            corejs: '3',
           }
-        ]
-      ]
-    })
+        ],
+      ],
+    }),
+    commonJs(),
   ],
 };
