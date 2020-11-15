@@ -16,32 +16,32 @@ npm install @lyngs/merge
 import merge from '@lyngs/merge';
 
 const target = {
-	info: {
-		weather: 'sunny',
-	}，
-	people: [
-		{ name: 'shook', age: 16 }
-	],
+  info: {
+    weather: 'sunny',
+  },
+  people: [
+    { name: 'shook', age: 16 }
+  ],
 };
 
-merge(target, 
-	{
-		info: {
-			dateTime: Date.now(),
-			weather: 'cloudy',
-		},
-	},
-	{
-		people: [
-			{ name: 'oral' },
-			{ name: 'lyngs', age: 15 },
-		],
-	}
+merge(target,
+  {
+    info: {
+      dateTime: Date.now(),
+      weather: 'cloudy',
+    },
+  },
+  {
+    people: [
+      { name: 'oral' },
+      { name: 'lyngs', age: 15 },
+    ],
+  }
 );
 
 console.log(target);
 /**
-{
+ {
 	info: {
 		dateTime: 1605451585612,
 		weather: 'cloudy',
@@ -51,7 +51,7 @@ console.log(target);
 		{ name: 'lyngs', age: 15 },
 	],
 }
-**/
+ **/
 ```
 
 ### Build
