@@ -5,7 +5,7 @@ import babel from '@rollup/plugin-babel';
 export default {
   input: 'src/index.js',
   output: {
-    name: 'digger',
+    name: 'merge',
     file: 'dist/index.js',
     format: 'umd',
   },
