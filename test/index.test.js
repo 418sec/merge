@@ -26,6 +26,18 @@ describe(`merge <Object/Array>`, () => {
           result   = { family: { children: [ { name: 'LL', age: 1 } ] } };
     expect(merge(target, compare, compare2)).to.eql(result);
   });
+
+  // TODO - fix the circular problem
+  /*it('[ loop calling ]', () => {
+    let   target  = { name: 'shook' },
+          compare = { target };
+
+    target.compare = compare;
+
+    const result  = { name: 'shook', target, compare };
+
+    expect(merge(target, compare)).to.eql(result);
+  });*/
 });
 
 describe(`merge <Set>`, () => {

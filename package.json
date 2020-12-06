@@ -1,6 +1,6 @@
 {
   "name": "@lyngs/merge",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Use merge() to merge every value. supporting types: <Object/Array/Set/Map>.",
   "main": "dist/index.js",
   "directories": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "mocha --require @babel/register",
+    "test:build": "rollup -c & mocha --require @babel/register",
     "build": "rollup -c"
   },
   "repository": {

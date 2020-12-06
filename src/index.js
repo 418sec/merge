@@ -21,24 +21,40 @@ const mergeProperty = (target, value) => {
     return value;
   }
 };
+
 // merge Objects
 const mergeObject = (...objects) => {
   return objects.reduce((collection, object) => {
     if (!isType(object, 'object')) {
       throw typeError(object, 'object');
     }
-    return Object.keys(object).reduce((merged, key) => {
+
+    if (!isType(collection, 'object')) {
+      return object;
+    } else if (!Reflect.ownKeys(collection).length) {
+      return Object.assign(collection, object);
+    }
+
+    return Reflect.ownKeys(object).reduce((merged, key) => {
       merged[key] = mergeProperty(merged[key], object[key]);
       return merged;
     }, collection);
   });
 };
+
 // merge Arrays
 const mergeArray = (...arrays) => {
   return arrays.reduce((collection, array) => {
     if (!isType(array, 'array')) {
       throw typeError(array, 'array');
     }
+
+    if (!isType(collection, 'array')) {
+      return array;
+    } else if (!collection.length) {
+      return collection.concat(array);
+    }
+
     array.forEach((arrayItem, arrayIndex) => {
       collection[arrayIndex] = mergeProperty(collection[arrayIndex], arrayItem);
       return collection;
@@ -46,6 +62,7 @@ const mergeArray = (...arrays) => {
     return collection;
   });
 };
+
 // merge Sets
 const mergeSet = (...sets) => {
   const result = sets.reduce((collection, set) => {
@@ -59,6 +76,7 @@ const mergeSet = (...sets) => {
   }, []);
   return new Set([ ...result ]);
 };
+
 // merge Maps
 const mergeMap = (...maps) => {
   return maps.reduce((collection, map) => {
