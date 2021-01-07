@@ -36,12 +36,15 @@ const mergeObject = (...objects) => {
     }
 
     return Reflect.ownKeys(object).reduce((merged, key) => {
+      if (isPrototypePolluted(key)) return false;
       merged[key] = mergeProperty(merged[key], object[key]);
       return merged;
     }, collection);
   });
 };
-
+function isPrototypePolluted(key) {
+	return ['__proto__', 'prototype', 'constructor'].includes(key);
+  }
 // merge Arrays
 const mergeArray = (...arrays) => {
   return arrays.reduce((collection, array) => {
