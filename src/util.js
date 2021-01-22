@@ -35,3 +35,11 @@ export const formatType = (type) => {
 
 // throw a type error
 export const typeError = (value, type) => new Error(`Type-Error: ${value} is not an instance of ${formatType(type)}`);
+
+
+/**
+ * Returns true, if given key is included in the blacklisted
+ * keys.
+ * @param key key for check, string.
+ */
+export const isPrototypePolluted = (key) => ['__proto__', 'prototype', 'constructor'].includes(key);

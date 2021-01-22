@@ -27,6 +27,15 @@ describe(`merge <Object/Array>`, () => {
     expect(merge(target, compare, compare2)).to.eql(result);
   });
 
+  it('should prevent prototype pollution', () => {
+    const obj = { placeholder: true };
+    const malicious = JSON.parse('{"__proto__":{"polluted":"Yes! Its Polluted"}, "test": "t"}');
+    const result = merge(obj, malicious);
+    expect(result.polluted).to.equal(undefined);
+    expect({}.polluted).to.equal(undefined);
+    expect(result.polluted).to.not.equal("Yes! Its Polluted");
+  })
+
   // TODO - fix the circular problem
   /*it('[ loop calling ]', () => {
     let   target  = { name: 'shook' },
