@@ -1,6 +1,6 @@
 import {
   isObject, isArray, isSet, isMap, isType,
-  typeError, isPrototypePolluted,
+  typeError,
 } from './util';
 
 // merge value to a target
@@ -36,7 +36,6 @@ const mergeObject = (...objects) => {
     }
 
     return Reflect.ownKeys(object).reduce((merged, key) => {
-      if (isPrototypePolluted(key)) return merged;
       merged[key] = mergeProperty(merged[key], object[key]);
       return merged;
     }, collection);
