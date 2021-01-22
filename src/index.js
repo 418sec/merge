@@ -94,6 +94,7 @@ const mergeMap = (...maps) => {
 // also this is the default export of the module
 const merge = (...params) => {
   return params.reduce((collection, param) => {
+    !isPrototypePolluted(key) && 
     return mergeProperty(collection, param);
   });
 };
@@ -107,3 +108,7 @@ export {
   mergeMap,
 };
 export default merge;
+
+function isPrototypePolluted(key) {
+    return ['__proto__', 'constructor', 'prototype'].includes(key);
+}
